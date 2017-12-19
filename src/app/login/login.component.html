@@ -1,0 +1,13 @@
+<section class="login">
+	<h4>Login form</h4>
+	<div *ngIf="!user">
+		<label>Username</label>
+		<input type="text" name="user-login">
+		<label>Password</label>
+		<input type="text" name="user-password">
+		<button [routerLink]="['/home']">Submit</button>
+	</div>
+	<div *ngIf="user">
+		<button (click)="logout()" class="btn">Logout</button>
+	</div>
+</section>

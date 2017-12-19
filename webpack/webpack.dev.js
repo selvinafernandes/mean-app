@@ -10,7 +10,10 @@ module.exports = {
 	debug: true,
 	devServer: {
 		contentBase: path.resolve(rootDir, 'dist'),
-		port: 9000
+		port: 3000,
+		historyApiFallback: {
+			index: '/index.html'
+		}
 	},
 	devtool: 'source-map',
 	entry: {
@@ -21,13 +24,6 @@ module.exports = {
 		loaders: [
 			{loader: 'raw',test: /\.(html|scss)$/ },
 			{exclude: /node_modules/, loader: 'ts!angular2-template', test: /\.ts$/}
-			// {
-			// 	test:/\.scss$/,
-			// 	use:ExtractTextPlugin.extract({
-			// 		fallback: 'style-loader',
-			// 		loader:'css-loader!sass-loader'
-			// 	})
-			// }
 		]
 	},
 	output: {

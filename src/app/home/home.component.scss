@@ -1,0 +1,103 @@
+.main {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+.todos {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	font-size: 2em;
+	background-color: #B0E0E6;
+	padding: 1em 1em;
+	color: white;
+	text-transform: uppercase;
+	font-family: 'Helvetica';
+	border-radius: 1%;
+}
+
+.tasks {
+	padding: 1em;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.tasks-title {
+	text-align: center;
+	display: block;
+	font-family: 'Helvetica';
+}
+
+.tasks-list {
+	list-style: none;
+	text-transform: lowercase;
+	font-size: 1em;
+	padding: 0;
+	display: flex;
+	align-items: flex-start;
+	flex-direction: column;
+	max-width: 100%;
+	font-style: italic;
+
+}
+
+.tasks-button {
+	text-transform: uppercase;
+	color: white;
+	background-color: transparent;
+	padding: 1em 1em;
+	border: 1px solid white;
+	cursor: pointer;
+	margin-left: 1em;
+	align-self: flex-end;
+}
+
+.task-new {
+	border: 1px solid white;
+	margin-right: 1em;
+}
+
+.tasks-name {
+	padding: 1em 1em;
+}
+
+.tasks-items {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	overflow-wrap: normal;
+}
+
+.add-list {
+	display: flex;
+	flex-direction: column;
+    border: 1px solid white;
+    background-color:#B0E0E6;
+    padding: 1em;
+}
+
+.add-button {
+	color: white;
+}
+
+.newtodo {
+	width: 50px;
+	word-wrap: break-word; 
+}
+
+.add-new {
+	display: flex;
+	justify-content: space-between;
+	height: 5%;
+	margin: 2% 2%;
+}
+
+.main-todo {
+	margin: 2% 2%;
+	display: flex;
+	justify-content: flex-start;
+}

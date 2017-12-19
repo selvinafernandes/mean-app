@@ -1,53 +1,26 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { User } from './users/user';
+import { Subscription }   from 'rxjs/Subscription';
+import { AuthService } from './auth.service';
 
 @Component ({
 	selector: 'app',
 	templateUrl: './app.component.html',
-	styleUrls: [ './app.component.scss' ]
+	styleUrls: [ './app.component.scss' ],
+	providers: [ AuthService ]
 }) 
 
-export class AppComponent { 
-	newTodo: string;
-	todos: any;
-	todoObj:any;
-	mainObj:any;
-	items: any;
+export class AppComponent implements OnInit, OnDestroy { 
+	
 
-	constructor(){
-		this.newTodo = '';
-		this.items = [];
-		this.items.todos = [];
+	constructor( private authService: AuthService ) { }
+
+	ngOnInit() {
+
 	}
 
-	addNewList(j:any) {
-		this.mainObj =  this.todos;
-		this.items.push(this.mainObj);
-		console.log(this.items);
+	ngOnDestroy() {
+
 	}
 
-	addTodo(event:any) {
-		this.todoObj = {
-			newTodo: this.newTodo,
-			completed:false,
-			isEditing:false
-		}
-		this.items.todos.push(this.todoObj);
-		this.newTodo = '';
-		event.preventDefault();
-	}
-
-	deleteTodo(i:any) {
-		this.items.todos.splice(i, 1);
-	}
-
-	deleteTodoItems(){
-		for(let i = this.items.todos.length - 1; i >= 0 ; i--){
-			if(this.items.todos[i].completed){
-				this.items.todos.splice(i, 1);
-			}
-		}
-	}
-	editTodo(todo:any){
-		todo.isEditing = !todo.isEditing;
-	}
 }
