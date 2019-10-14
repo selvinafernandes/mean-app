@@ -1,22 +1,36 @@
 <section class="main">
 	<div class="main-todo" *ngFor="let item of items">
-		<div class = "todos">
-			<h4 class = tasks-title>Todo App</h4>
-			<form #form="ngForm" (ngSubmit) = "addTodo(form.value.newTodo, item)">
-				<input name="newTodo" class="tasks-name" ngModel>
-				<button type="submit" [disabled]="!form.value.newTodo" class="tasks-button">Add task</button>
+		<div class="todos">
+			<h4 class="tasks-title">Todo App</h4>
+			<form #form="ngForm" (ngSubmit)="addTodo(form.value.newTodo, item)">
+				<input name="newTodo" class="tasks-name" ngModel />
+				<button
+					type="submit"
+					[disabled]="!form.value.newTodo"
+					class="tasks-button"
+				>
+					Add task
+				</button>
 			</form>
 			<ul class="tasks-list">
-				<li class = "tasks-items" *ngFor = "let todo of item.todos; let i = index">
-					<input type="checkbox" class="task-new" [(ngModel)]="todo.completed">
+				<li class="tasks-items" *ngFor="let todo of item.todos; let i = index">
+					<input
+						type="checkbox"
+						class="task-new"
+						[(ngModel)]="todo.completed"
+					/>
 					<div *ngIf="todo.isEditing; else elseBlock">
-						<input [ngClass] = "{'checked': todo.completed}" value={{todo.newTodo}} class="newtodo" 
-						[(ngModel)]="todo.newTodo">
+						<input
+							[ngClass]="{ checked: todo.completed }"
+							value="{{ todo.newTodo }}"
+							class="newtodo"
+							[(ngModel)]="todo.newTodo"
+						/>
 					</div>
 					<ng-template #elseBlock>
 						{{ todo.newTodo }}
 					</ng-template>
-					<span class="edit-icon" (click) = "editTodo(todo)">
+					<span class="edit-icon" (click)="editTodo(todo)">
 						<div *ngIf="todo.isEditing; else showSave">
 							<button class="tasks-button">
 								<i class="fa fa-save fa-fw"></i>
@@ -28,7 +42,7 @@
 							</button>
 						</ng-template>
 					</span>
-					<span class="delete-icon" (click) = "deleteTodo(item,i)">
+					<span class="delete-icon" (click)="deleteTodo(item, i)">
 						<button class="tasks-button">
 							<i class="fa fa-trash-o fa-fw delete-icon"></i>
 						</button>
@@ -36,14 +50,20 @@
 				</li>
 			</ul>
 			<div class="delete-task">
-				<button type="submit" (click)="deleteTodoItems(item)" class="tasks-button">Delete tasks</button>
+				<button
+					type="submit"
+					(click)="deleteTodoItems(item)"
+					class="tasks-button"
+				>
+					Delete tasks
+				</button>
 			</div>
 		</div>
 	</div>
 	<div class="add-new">
-		<input name="todo-title" class="todo-title">
-		<button class="add-list" (click) = "addNewList()">
+		<input name="todo-title" class="todo-title" />
+		<button class="add-list" (click)="addNewList()">
 			<i class="fa fa-plus add-button"></i>
 		</button>
 	</div>
-	</section>
+</section>
